@@ -47,7 +47,7 @@ classdef GridSupply < handle
         function openDSSConnectionHandle = GetOpenDSSConnection()
             persistent openDSSConnection;
             if isempty( openDSSConnection ) || ~isvalid( openDSSConnection )
-               if exist( 'OpenDSSManager', 'class' )
+               if exist( 'OpenDSSManager', 'class' ) && exist( 'actxserver', 'builtin' )
                   openDSSConnection = OpenDSSManager();
                else
                    openDSSConnection = [];
